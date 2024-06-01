@@ -6,7 +6,15 @@ import pyodbc
 st.title("Map Plot Rough")
 
 
-connector = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=SYNA,1433;DATABASE=DISPATCH_DATA;UID=testuser;PWD=User@123')
+
+connector = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='
+        + st.secrets["server"]
+        + ";DATABASE="
+        + st.secrets["database"]
+        + ";UID="
+        + st.secrets["username"]
+        + ";PWD="
+        + st.secrets["password"])
 csr = connector.cursor()
 
 st.header("All products")
